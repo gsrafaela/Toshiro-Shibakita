@@ -1,0 +1,17 @@
+# Usando a imagem base do Nginx
+FROM nginx:alpine
+
+# Definir o diretório de trabalho dentro do contêiner
+WORKDIR /etc/nginx
+
+# Copiar o arquivo de configuração nginx.conf para o contêiner
+COPY nginx.conf /etc/nginx/nginx.conf
+
+# (Opcional) Copiar outros arquivos de configuração ou conteúdo necessário
+# COPY ./html /usr/share/nginx/html
+
+# Expor a porta 80 para o Nginx
+EXPOSE 80
+
+# Comando para iniciar o Nginx no modo foreground
+CMD ["nginx", "-g", "daemon off;"]
